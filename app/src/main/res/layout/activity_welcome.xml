@@ -7,15 +7,26 @@
     tools:context=".WelcomeActivity"
     android:background="@drawable/bg_run">
 
-    <Button
+    <androidx.cardview.widget.CardView
         android:id="@+id/skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="跳过 3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="12dp"
         android:layout_marginTop="12dp"
-        android:background=""/>
+        app:cardCornerRadius="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跳过 3"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:background="@color/peru"/>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
