@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">android-reader</string>
+
+<!--    底部导航栏-->
+    <string name="title_market">书城</string>
+    <string name="title_shelf">书架</string>
+    <string name="title_user">我的</string>
+
 </resources>
