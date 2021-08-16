@@ -17,6 +17,7 @@
         android:layout_marginTop="12dp"
         app:cardCornerRadius="50dp">
         <TextView
+            android:id="@+id/skipText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="跳过 3"
