@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    主配色-->
+    <color name="color_1">#deab8a</color>
+    <color name="color_2">#fedcbd</color>
+    <color name="color_3">#f47920</color>
+    <color name="color_4">#905a3d</color>
+    <color name="color_5">#8f4b2e</color>
+    <color name="color_6">#87481f</color>
+    <color name="color_7">#5f3c23</color>
+    <color name="color_8">#6b473c</color>
+    <color name="color_9">#faa755</color>
+    <color name="color_10">#fab27b</color>
+<!--    主配色-->
+    
+    
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
