@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:columnCount="3"
+    android:orientation="horizontal"
+    android:background="@color/teal_200"
+    android:rowCount="4">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_3"
+        android:layout_columnWeight="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/teal_200"
+            android:src="@drawable/wzry01"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:layout_width="64dp"
+            android:text="王者荣耀"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_3"
+        android:layout_columnWeight="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/teal_200"
+            android:src="@drawable/wzry02"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:layout_width="64dp"
+            android:text="王者荣耀"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_3"
+        android:layout_columnWeight="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/teal_200"
+            android:src="@drawable/wzry03"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:layout_width="64dp"
+            android:text="王者荣耀"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_3"
+        android:layout_columnWeight="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/teal_200"
+            android:src="@drawable/wzry02"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:layout_width="64dp"
+            android:text="王者荣耀"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_3"
+        android:layout_columnWeight="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/teal_200"
+            android:src="@drawable/wzry01"
+            android:scaleType="centerCrop" />
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="64dp"
+            android:text="王者荣耀鸿星尔克消息"
+            android:layout_height="wrap_content" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/purple"
+                android:gravity="center"
+                android:text="w=64,h=0\n5:10"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintDimensionRatio="5:10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_3"
+        android:layout_columnWeight="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="64dp"
+            android:text="王者荣耀"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</GridLayout>
