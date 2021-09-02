@@ -1,9 +1,14 @@
 package com.ljp.android_reader;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,29 +72,64 @@ public class scannerBookFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scanner_book, container, false);
 
-
-        List<Book> data = new ArrayList<>();
-        data.add(new Book("朝花夕拾", "TXT"));
-        data.add(new Book("道德经", "TXT"));
-        data.add(new Book("钢铁是怎样炼成的", "PDF"));
-        data.add(new Book("老人与海", "EPUB"));
-        data.add(new Book("朝花夕拾", "TXT"));
-        data.add(new Book("道德经", "TXT"));
-        data.add(new Book("钢铁是怎样炼成的", "PDF"));
-        data.add(new Book("老人与海", "EPUB"));
-        data.add(new Book("朝花夕拾", "TXT"));
-        data.add(new Book("道德经", "TXT"));
-        data.add(new Book("钢铁是怎样炼成的", "PDF"));
-        data.add(new Book("老人与海", "EPUB"));
-        data.add(new Book("朝花夕拾", "TXT"));
-        data.add(new Book("道德经", "TXT"));
-        data.add(new Book("钢铁是怎样炼成的", "PDF"));
-        data.add(new Book("老人与海", "EPUB"));
-
         ListView scanBook = view.findViewById(R.id.scanBook);
-        MapperBookAdapter scanBookAdapter = new MapperBookAdapter(getContext(), data);
+        MapperBookAdapter scanBookAdapter = new MapperBookAdapter(getContext(), getFilesByType(getContext()));
         scanBook.setAdapter(scanBookAdapter);
         // Inflate the layout for this fragment
         return view;
+    }
+
+    /**
+     * 获取文件
+     **/
+    public static List<Book> getFilesByType(Context context) {
+        List<String> needType = new ArrayList<>();
+        needType.add("txt");
+        needType.add("epub");
+        needType.add("pdf");
+        List<Book> files = new ArrayList<>();
+        // 扫描files文件库
+        Cursor c = null;
+        try {
+            ContentResolver mContentResolver = context.getContentResolver();
+            c = mContentResolver.query(MediaStore.Files.getContentUri("external"), null, null, null, null);
+            Log.e("数量", "getFilesByType: " + c.getCount());
+            int columnIndexOrThrow_MIME_TYPE = c.getColumnIndexOrThrow(MediaStore.Files.FileColumns.MIME_TYPE);
+            int columnIndexOrThrow_DATA = c.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DATA);
+            int columnIndexOrThrow_SIZE = c.getColumnIndexOrThrow(MediaStore.Files.FileColumns.SIZE);
+            int columnIndexOrThrow_NAME = c.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DISPLAY_NAME);
+            int tempId = 0;
+            while (c.moveToNext()) {
+                String path = c.getString(columnIndexOrThrow_DATA);
+                String minType = c.getString(columnIndexOrThrow_MIME_TYPE);
+                String name = c.getString(columnIndexOrThrow_NAME);
+//                Log.e("FileManager ", "name:" + name + "; type: " + minType);
+
+                int position_do = name.lastIndexOf(".");
+                String fileNameLast, fileNameFirst;
+                if (position_do == -1) {
+                    continue;
+                }
+                else {
+                    fileNameLast = name.substring(position_do + 1);
+                    fileNameFirst = name.substring(0, position_do);
+//                    Log.e("文件类型", "getFilesByType: " + fileNameFirst);
+                    for (int i = 0; i < needType.size(); i++) {
+                        if (fileNameLast.equals(needType.get(i))){
+//                            Log.e("TAG", "getFilesByType: " + fileNameLast + fileNameFirst);
+                            files.add(new Book(fileNameFirst, fileNameLast));
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
+        return files;
     }
 }

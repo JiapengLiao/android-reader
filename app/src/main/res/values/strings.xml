@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">android-reader</string>
+    <string name="app_name">安卓阅读器</string>
 
     <!--    底部导航栏-->
     <string name="title_market">书城</string>

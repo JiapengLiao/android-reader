@@ -4,12 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentContainer;
 
+import android.Manifest;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,7 +37,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ljp.android_reader.adapter.BookListAdapter;
 import com.ljp.android_reader.bean.Book;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -129,7 +141,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         bnv = findViewById(R.id.bottomMenu);
         bnv.setOnNavigationItemSelectedListener(menuItemClick);
+
+        requestMyPermissions();
     }
+
+
+
 
     //底部导航点击监听
     BottomNavigationView.OnNavigationItemSelectedListener menuItemClick = item -> {
@@ -156,4 +173,21 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
         return false;
     };
+
+    /**
+     * 处理权限
+     * */
+    private void requestMyPermissions() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            //没有授权，编写申请权限代码
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+        } else {
+            Log.d("TAG", "requestMyPermissions: 有写SD权限");
+        }
+    }
+    /**
+     * 处理权限结束
+     * */
 }

@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -37,7 +40,6 @@ public class AddBookActivity extends AppCompatActivity {
 
         Toolbar addBookToolBar = findViewById(R.id.addBookToolBar);
         setSupportActionBar(addBookToolBar);
-
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         getSupportFragmentManager().beginTransaction()
@@ -72,11 +74,5 @@ public class AddBookActivity extends AppCompatActivity {
                 Toast.makeText(AddBookActivity.this, "什么也没选", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
     }
 }
