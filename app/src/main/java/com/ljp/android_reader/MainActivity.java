@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentContainer;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,8 +19,10 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ljp.android_reader.adapter.BookListAdapter;
@@ -29,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     private View fragmentView;//装fragment的容器
     private BottomNavigationView bnv;//底部导航栏组件
     private SearchView sv;//搜索框
@@ -77,29 +81,50 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        List<Book> data = new ArrayList<>();
-        data.add(new Book(R.drawable.wzry01, "朝花夕拾"));
-        data.add(new Book(R.drawable.wzry02, "道德经"));
-        data.add(new Book(R.drawable.wzry03, "钢铁是怎样炼成的"));
-        data.add(new Book(R.drawable.wzry01, "老人与海"));
-        data.add(new Book(R.drawable.wzry02, "斗破苍穹"));
-        bookListAdapter = new BookListAdapter(getApplicationContext(), data);
-        bookList = findViewById(R.id.bookList);
-        bookList.setAdapter(bookListAdapter);
+//        List<Book> data = new ArrayList<>();
+//        data.add(new Book(R.drawable.wzry01, "朝花夕拾"));
+//        data.add(new Book(R.drawable.wzry02, "道德经"));
+//        data.add(new Book(R.drawable.wzry03, "钢铁是怎样炼成的"));
+//        data.add(new Book(R.drawable.wzry01, "老人与海"));
+//        data.add(new Book(R.drawable.wzry02, "斗破苍穹"));
+//        bookListAdapter = new BookListAdapter(this, data);
+//        bookList = findViewById(R.id.bookList);
+//        bookList.setAdapter(bookListAdapter);
 
-        //设置书籍显示格式
-        bookImage = (ImageView) findViewById(R.id.bookImage);
-        int parentWidth = bookList.getWidth();
-        int bookWidth = (parentWidth - 20*2)/3;
-//        bookImage.setMaxWidth(bookWidth);
-//        bookImage.setMaxHeight((int)(bookWidth * 0.64 + 0.5));
+    }
+
+    //添加书籍菜单
+    public void showPopUp(View v){
+        PopupMenu popup = new PopupMenu(this, v);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.add_book);
+        popup.show();
+    }
+    //点击事件
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()){
+            case R.id.myPhone:
+                Toast.makeText(this, "本机书籍", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, AddBookActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.wlan:
+                Toast.makeText(this, "wlan传书", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.myBook:
+                Toast.makeText(this, "我的书籍", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return false;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
-        getSupportActionBar().hide();//隐藏标题栏
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
+//        getSupportActionBar().hide();//隐藏标题栏
         setContentView(R.layout.activity_main);
 
         bnv = findViewById(R.id.bottomMenu);

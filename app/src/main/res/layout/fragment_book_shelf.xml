@@ -28,13 +28,16 @@
                 android:layout_height="match_parent"
                 android:iconifiedByDefault="false"
                 android:queryHint="召唤系是"
-                android:background="@color/color_1" />
+                android:background="@color/color_1"
+                android:submitBackground="@null"
+                android:queryBackground="@null"/>
         </androidx.cardview.widget.CardView>
 
         <!--        书架 书单-->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
             <TextView
                 android:id="@+id/tvBookShelf"
                 android:layout_width="wrap_content"
@@ -48,14 +51,16 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_toRightOf="@id/tvBookShelf"
+                android:textColor="@color/black"
                 android:text="书单"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
                 android:layout_alignParentRight="true"
-                android:text="+"/>
+                android:src="@drawable/ic_baseline_add_24"
+                android:onClick="showPopUp"
+                />
         </RelativeLayout>
 
         <View

@@ -4,12 +4,27 @@ public class Book {
     private int imageId;
     private String bookName;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    private String type;
+
     public Book(int imageId, String bookName) {
         this.imageId = imageId;
         this.bookName = bookName;
     }
 
     public Book() {
+    }
+
+    public Book(String bookName, String type) {
+        this.bookName = bookName;
+        this.type = type;
     }
 
     public int getImageId() {

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinarr">
+        <item>扫描书籍</item>
+        <item>浏览文件</item>
+    </string-array>
+</resources>
