@@ -1,6 +1,7 @@
 package com.ljp.android_reader.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +44,11 @@ public class BookListAdapter extends BaseAdapter {
         View view = inflater.inflate(R.layout.book_list_item, null);
         ImageView image = view.findViewById(R.id.bookImage);
         TextView name = view.findViewById(R.id.bookName);
-        image.setImageResource(data.get(position).getImageId());
+//        image.setImageResource(data.get(position).getImageId());
+        image.setImageResource(R.drawable.txt);
         name.setText(data.get(position).getBookName());
+        view.setTag(data.get(position).getBookId());
+//        Log.e("getView: ", view.toString());
 
         return view;
     }

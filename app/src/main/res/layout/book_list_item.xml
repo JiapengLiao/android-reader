@@ -13,6 +13,20 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="5dp"/>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"
+        android:background="@color/color_10">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_clear_24" />
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/bookName"
         android:layout_width="match_parent"

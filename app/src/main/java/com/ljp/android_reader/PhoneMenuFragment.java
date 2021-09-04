@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link phoneMenuFragment#newInstance} factory method to
+ * Use the {@link PhoneMenuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class phoneMenuFragment extends Fragment {
+public class PhoneMenuFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class phoneMenuFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public phoneMenuFragment() {
+    public PhoneMenuFragment() {
         // Required empty public constructor
     }
 
@@ -37,8 +37,8 @@ public class phoneMenuFragment extends Fragment {
      * @return A new instance of fragment phoneMenuFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static phoneMenuFragment newInstance(String param1, String param2) {
-        phoneMenuFragment fragment = new phoneMenuFragment();
+    public static PhoneMenuFragment newInstance(String param1, String param2) {
+        PhoneMenuFragment fragment = new PhoneMenuFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

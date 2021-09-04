@@ -26,5 +26,5 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         app:layout_constraintVertical_weight="1"
-        android:name="com.ljp.android_reader.scannerBookFragment"/>
+        android:name="com.ljp.android_reader.ScannerBookFragment"/>
 </LinearLayout>

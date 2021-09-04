@@ -25,6 +25,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -58,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     protected void onStart() {
         super.onStart();
-
         //OnCreate时还无法相互获取组件
         sv = findViewById(R.id.searchView);
 
@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.inflate(R.menu.add_book);
         popup.show();
     }
+
     //点击事件
     @Override
     public boolean onMenuItemClick(MenuItem item) {
