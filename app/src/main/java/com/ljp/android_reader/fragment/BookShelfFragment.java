@@ -1,6 +1,7 @@
-package com.ljp.android_reader;
+package com.ljp.android_reader.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -12,12 +13,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.ljp.android_reader.R;
+import com.ljp.android_reader.activity.ReadActivity;
 import com.ljp.android_reader.adapter.BookListAdapter;
 import com.ljp.android_reader.bean.Book;
 import com.ljp.android_reader.dao.BookDao;
@@ -25,7 +27,6 @@ import com.ljp.android_reader.database.AppDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BinaryOperator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -104,6 +105,22 @@ public class BookShelfFragment extends Fragment {
         GridView bookList = view.findViewById(R.id.bookList);
         bookList.setAdapter(bookListAdapter);
 
+        /**
+         * 书籍点按打开
+         * */
+        bookList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int bookId = Integer.parseInt(view.getTag().toString());
+                Intent intent = new Intent(getContext(), ReadActivity.class);
+                intent.putExtra("bookId", bookId);
+                startActivity(intent);
+            }
+        });
+
+        /**
+         * 书籍长按删除
+         * */
         bookList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {

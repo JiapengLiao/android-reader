@@ -2,29 +2,22 @@ package com.ljp.android_reader.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.room.Room;
 
-import com.ljp.android_reader.AddBookActivity;
 import com.ljp.android_reader.R;
-import com.ljp.android_reader.ScannerBookFragment;
 import com.ljp.android_reader.bean.Book;
 import com.ljp.android_reader.bean.Other;
 import com.ljp.android_reader.dao.BookDao;
 import com.ljp.android_reader.database.AppDatabase;
 
 import java.util.List;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 public class MapperBookAdapter extends BaseAdapter {
     private Context mContext;

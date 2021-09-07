@@ -1,4 +1,4 @@
-package com.ljp.android_reader;
+package com.ljp.android_reader.fragment;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -18,6 +18,8 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ljp.android_reader.activity.MainActivity;
+import com.ljp.android_reader.R;
 import com.ljp.android_reader.adapter.MapperBookAdapter;
 import com.ljp.android_reader.bean.Book;
 import com.ljp.android_reader.dao.BookDao;

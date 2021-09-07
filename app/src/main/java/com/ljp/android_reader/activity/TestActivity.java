@@ -1,4 +1,4 @@
-package com.ljp.android_reader;
+package com.ljp.android_reader.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.ljp.android_reader.R;
 import com.ljp.android_reader.bean.Book;
 import com.ljp.android_reader.dao.BookDao;
 import com.ljp.android_reader.database.AppDatabase;

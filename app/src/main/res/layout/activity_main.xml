@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.ljp.android_reader.BookShelfFragment"
+        android:name="com.ljp.android_reader.fragment.BookShelfFragment"
         app:layout_constraintTop_toTopOf="parent"/>
     
     <com.google.android.material.bottomnavigation.BottomNavigationView

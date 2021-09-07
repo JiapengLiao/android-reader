@@ -1,4 +1,4 @@
-package com.ljp.android_reader;
+package com.ljp.android_reader.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.ljp.android_reader.fragment.PhoneMenuFragment;
+import com.ljp.android_reader.R;
+import com.ljp.android_reader.fragment.ScannerBookFragment;
 import com.ljp.android_reader.adapter.MapperBookAdapter;
 import com.ljp.android_reader.bean.Book;
 import com.ljp.android_reader.dao.BookDao;

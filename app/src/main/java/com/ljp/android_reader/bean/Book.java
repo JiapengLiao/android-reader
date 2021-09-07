@@ -27,6 +27,8 @@ public class Book {
 
     private int imageId;
 
+    private String path;
+
     public Book() {
     }
 
@@ -50,6 +52,14 @@ public class Book {
         this.bookName = bookName;
         this.type = type;
         this.bookShelf = bookShelf;
+    }
+
+    @Ignore
+    public Book(String bookId, String bookName, String type, String path) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.type = type;
+        this.path = path;
     }
 
     @Ignore
@@ -110,5 +120,13 @@ public class Book {
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

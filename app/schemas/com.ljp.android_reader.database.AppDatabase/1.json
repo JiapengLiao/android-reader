@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e8a6d721d96ed35e33d308be983ff219",
+    "identityHash": "746bdbdd3ad2427b75008336e61e4481",
     "entities": [
       {
         "tableName": "Book",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`bid` INTEGER NOT NULL, `book_id` TEXT, `book_name` TEXT, `book_type` TEXT, `book_shelf` INTEGER NOT NULL, `imageId` INTEGER NOT NULL, PRIMARY KEY(`bid`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`bid` INTEGER NOT NULL, `book_id` TEXT, `book_name` TEXT, `book_type` TEXT, `book_shelf` INTEGER NOT NULL, `imageId` INTEGER NOT NULL, `path` TEXT, PRIMARY KEY(`bid`))",
         "fields": [
           {
             "fieldPath": "bid",
@@ -43,6 +43,12 @@
             "columnName": "imageId",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "path",
+            "columnName": "path",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -58,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e8a6d721d96ed35e33d308be983ff219')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '746bdbdd3ad2427b75008336e61e4481')"
     ]
   }
 }

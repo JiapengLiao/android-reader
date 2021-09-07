@@ -1,4 +1,4 @@
-package com.ljp.android_reader;
+package com.ljp.android_reader.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,13 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
-import android.os.SystemClock;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.TextView;
+
+import com.ljp.android_reader.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     private Intent mainIntent;

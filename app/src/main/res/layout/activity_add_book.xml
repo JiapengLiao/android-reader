@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddBookActivity"
+    tools:context=".activity.AddBookActivity"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -26,5 +26,5 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         app:layout_constraintVertical_weight="1"
-        android:name="com.ljp.android_reader.ScannerBookFragment"/>
+        android:name="com.ljp.android_reader.fragment.ScannerBookFragment"/>
 </LinearLayout>
