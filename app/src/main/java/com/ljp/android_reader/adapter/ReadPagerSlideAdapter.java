@@ -39,11 +39,21 @@ public class ReadPagerSlideAdapter extends FragmentStateAdapter {
         this.count = count;
     }
 
+    private View view;
+
+    public View getView() {
+        return view;
+    }
+
+    public void setView(View view) {
+        this.view = view;
+    }
+
     @NonNull
     @Override
     public Fragment createFragment(int position) {
         PageFragment fragment = new PageFragment("我是第" + position + "个页面", str);
-        View v = fragment.getView();
+        view = fragment.getView();
         return fragment;
     }
 

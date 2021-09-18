@@ -1,4 +1,4 @@
-package com.ljp.android_reader.fragment;
+ package com.ljp.android_reader.fragment;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ljp.android_reader.R;
+import com.ljp.android_reader.bean.ContentView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,7 +73,17 @@ public class PageFragment extends Fragment {
         }
     }
 
-    View view;
+    @Nullable
+    @Override
+    public View getView() {
+        return view;
+    }
+
+    public void setView(View view) {
+        this.view = view;
+    }
+
+    private View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,39 +93,16 @@ public class PageFragment extends Fragment {
         this.view = view;
 
         TextView tvSection = view.findViewById(R.id.section);
-        TextView tvContent = view.findViewById(R.id.content);
+        ContentView tvContent = view.findViewById(R.id.content);
         tvSection.setText(tvSection.getText() + strSection);
-//        Layout layout = tvSection.getLayout();
-
-//        int count = 0;
-////        for (int i = 0; i < 10000; i++) {
-//            count = layout.getLineForVertical(10);
-////        }
-//        Log.e("onCreateView: ", Integer.toString(layout.getLineEnd(2)));
-
         tvContent.setText(strContent);
 
         return view;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-//        TextView tvContent = view.findViewById(R.id.content);
-//        Layout layout = tvContent.getLayout();
-//        Log.e("onCreateView: ", Integer.toString(layout.getLineEnd(2)));
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-//        TextView tvContent = view.findViewById(R.id.content);
-//        Layout layout = tvContent.getLayout();
-//        Log.e("onCreateView: ", Integer.toString(layout.getLineEnd(2)));
+//        Log.e("onResume: ", "111");
     }
 }

@@ -37,6 +37,7 @@ public class FileOperation {
                 RandomAccessFile raf = new RandomAccessFile(book.getPath(), "r");
                 raf.seek(start);//指针跳到第pos个字节，即都第pos+1个字节
                 raf.read(b);
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -47,6 +48,17 @@ public class FileOperation {
         else {
             return null;
         }
+    }
+
+    public RandomAccessFile getRandomAccessFileById(int id, Context context){
+        Book book = this.getBookInfoById(id, context);
+        RandomAccessFile raf = null;
+        try {
+            raf = new RandomAccessFile(book.getPath(), "r");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return raf;
     }
 
     /**
